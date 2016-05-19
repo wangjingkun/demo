@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName">
+   <!--  订单状态通知vst_order -->
+   <!-- 
+    <bean id="orderSupplierNotifyService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${vst_order.serviceUrl}/orderSupplierNotifyServiceRemote" />
+        <property name="serviceInterface" value="com.lvmama.vst.back.client.ord.service.OrderSupplierNotifyService" />
+        <property name="chunkedPost" value="false" />
+        <property name="overloadEnabled" value="true" />
+    </bean>  -->
+</beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+<!--   <bean id="sampleJob" class="com.lvmama.vst.demo.quartz.test.SampleJob" />
+
+  <bean id="sampleJobFactory"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject">
+      <ref bean="sampleJob" />
+    </property>
+    <property name="targetMethod">
+      <value>run</value>
+    </property>
+    <property name="concurrent">
+      <value>false</value>
+    </property>
+  </bean>
+
+  <bean id="sampleJobTimes" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail">
+      <ref bean="sampleJobFactory" />
+    </property>
+    <property name="cronExpression">
+      <value>0 0/1 * * * ?</value>
+    </property>
+  </bean>
+
+  <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="dataSource"> <ref bean="dataSource" /> </property> 
+      <property name="configLocation"> <ref local="configLocationResource" /> </property>
+    <property name="triggers">
+      <list>
+        <ref local="sampleJobTimes" />
+      </list>
+    </property>
+  </bean>
+
+  <bean id="configLocationResource" class="org.springframework.core.io.ClassPathResource">
+    <constructor-arg value="quartz.properties" type="java.lang.String"></constructor-arg>
+  </bean> -->
+</beans>
