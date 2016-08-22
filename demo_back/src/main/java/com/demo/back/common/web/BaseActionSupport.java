@@ -18,7 +18,6 @@ import org.springframework.ui.Model;
 
 /**
  * ACTION基类,提供一些Web层常用的公共的方法
- * 
  */
 public class BaseActionSupport {
 
@@ -64,8 +63,7 @@ public class BaseActionSupport {
 		return null;
 	}
 
-	public void sendAjaxMsg(String msg, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void sendAjaxMsg(String msg, HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		try {

@@ -1,6 +1,6 @@
 package com.demo.back.exception;
 
-public class BusinessException extends Exception {
+public class BusinessException extends RuntimeException {
 
 	private static final long serialVersionUID = -3877531184268150162L;
 	private String message;
