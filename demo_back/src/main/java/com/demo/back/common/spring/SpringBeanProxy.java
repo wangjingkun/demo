@@ -9,10 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.util.StringUtils;
 
-/**
- * @author wangjingkun
- *
- */
 public class SpringBeanProxy {
 
 	private static ApplicationContext applicationContext;
