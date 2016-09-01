@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifa.acs.data.SuperiorMapper">
+
+    <resultMap type="User" id="UserResultMap">
+        <id property="username" column="username" />
+        <result property="loginString" column="login_string" />
+        <result property="email" column="email" />
+        <result property="phone" column="phone" />
+        <result property="password" column="password" />
+        <result property="nickname" column="nickname" />
+        <result property="headImage" column="head_image" />
+        <result property="innerFlag" column="inner_flag" />
+        <result property="status" column="status" />
+        <result property="lastLoginTime" column="last_login_time" />
+        <result property="lastLoginIp" column="last_login_ip" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Query_Column_List" >
+        <if test="user.username!=null"> AND `username`=#{user.username}</if>
+        <if test="user.loginString!=null and superior.loginString!=''"> AND `login_string`=#{user.loginString}</if>
+        <if test="user.email!=null"> AND `email`=#{user.email}</if>
+        <if test="user.phone!=null"> AND `phone`=#{user.phone}</if>
+        <if test="user.password!=null"> AND `password`=#{user.password}</if>
+        <if test="user.nickname!=null"> AND `nickname`=#{user.nickname}</if>
+        <if test="user.headImage!=null"> AND `head_image`=#{user.headImage}</if>
+        <if test="user.innerFlag!=null"> AND `inner_flag`=#{user.innerFlag}</if>
+        <if test="user.status!=null"> AND `status`=#{user.status}</if>
+        <if test="user.lastLoginTime!=null"> AND `last_login_ip`=#{user.lastLoginTime}</if>
+        <if test="user.createTime!=null"> AND `create_time`=#{user.createTime}</if>
+        <if test="user.updateTime!=null"> AND `update_time`=#{user.updateTime}</if>
+    </sql>
+
+    <insert id="save" parameterType="Superior" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `t_sso_superior`
+        (
+        `business`,
+        `username`,
+        `phone`,
+        `title`,
+        `recent_accuracy_rate`,
+        `accuracy_rate`,
+        `recent_earnings_rate`,
+        `highest_profit`,
+        `attention_num`,
+        `general_follow_buy_num`,
+        `senior_follow_buy_num`,
+        `follow_make_money`,
+        `agree_status`,
+        `status`,
+        `type`,
+        `join_rank`,
+        `sort_value`,
+        `create_time`,
+        `update_time`
+        )
+        VALUES (
+        #{business},
+        #{username},
+        #{phone},
+        #{title},
+        #{recentAccuracyRate},
+        #{accuracyRate},
+        #{recentEarningsRate},
+        #{highestProfit},
+        #{attentionNum},
+        #{generalFollowBuyNum},
+        #{seniorFollowBuyNum},
+        #{followMakeMoney},
+        #{agreeStatus},
+        #{status},
+        #{type},
+        #{joinRank},
+        #{sortValue},
+        #{createTime},
+        #{updateTime}
+        )
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT LAST_INSERT_ID() AS value
+        </selectKey>
+    </insert>
+
+    <update id="updateById" parameterType="Superior">
+        UPDATE `t_sso_superior`
+        <set>
+            `business`=#{business},
+            `username`=#{username},
+            `phone`=#{phone},
+            `tag`=#{tag},
+            `title`=#{title},
+            `recent_accuracy_rate`=#{recentAccuracyRate},
+            `accuracy_rate`=#{accuracyRate},
+            `recent_earnings_rate`=#{recentEarningsRate},
+            `highest_profit`=#{highestProfit},
+            `attention_num`=#{attentionNum},
+            `general_follow_buy_num`=#{generalFollowBuyNum},
+            `senior_follow_buy_num`=#{seniorFollowBuyNum},
+            `follow_make_money`=#{followMakeMoney},
+            `agree_status`=#{agreeStatus},
+            `status`=#{status},
+            `type`=#{type},
+            `join_rank`=#{joinRank},
+            `sort_value`=#{sortValue},
+            `update_time`=#{updateTime}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateSelectiveById" parameterType="Superior">
+        UPDATE `t_sso_superior`
+        <set>
+            <if test="business != null">`business`=#{business},</if>
+            <if test="username != null and username != ''">`username`=#{username},</if>
+            <if test="phone != null and phone != ''">`phone`=#{phone},</if>
+            <if test="tag != null and tag != ''">`tag`=#{tag},</if>
+            <if test="title != null and title != ''">`title`=#{title},</if>
+            <if test="recentAccuracyRate != null">`recent_accuracy_rate`=#{recentAccuracyRate},</if>
+            <if test="accuracyRate != null">`accuracy_rate`=#{accuracyRate},</if>
+            <if test="recentEarningsRate != null">`recent_earnings_rate`=#{recentEarningsRate},</if>
+            <if test="highestProfit != null">`highest_profit`=#{highestProfit},</if>
+            <if test="attentionNum != null">`attention_num`=#{attentionNum},</if>
+            <if test="generalFollowBuyNum != null">`general_follow_buy_num`=#{generalFollowBuyNum},</if>
+            <if test="seniorFollowBuyNum != null">`senior_follow_buy_num`=#{seniorFollowBuyNum},</if>
+            <if test="followMakeMoney != null">`follow_make_money`=#{followMakeMoney},</if>
+            <if test="agreeStatus != null">`agree_status`=#{agreeStatus},</if>
+            <if test="status != null">`status`=#{status},</if>
+            <if test="type != null">`type`=#{type},</if>
+            <if test="joinRank != null">`join_rank`=#{joinRank},</if>
+            <if test="sortValue != null">`sort_value`=#{sortValue},</if>
+            <if test="updateTime != null">`update_time`=#{updateTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getByUsernameAndBusiness" parameterType="int" resultMap="SuperiorResultMap">
+        SELECT * FROM `t_sso_superior`
+        <where>
+            username = #{username}
+            AND business = #{business}
+        </where>
+    </select>
+
+    <select id="getById" parameterType="int" resultMap="SuperiorResultMap">
+        SELECT * FROM `t_sso_superior`
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <select id="getPageList" parameterType="Superior" resultMap="SuperiorResultMap">
+        SELECT * FROM `t_sso_superior`
+        <where>
+            1=1
+            <include refid="Base_Query_Column_List" />
+        </where>
+
+        <if test="pageInfo != null">
+            <if test="pageInfo.orderColumn!=null">
+                ORDER BY `${pageInfo.orderColumn[0]}` ${pageInfo.orderDesc[0]}
+            </if>
+            <if test="pageInfo.orderColumn==null">
+                ORDER BY sort_value DESC, `create_time` DESC
+            </if>
+
+            LIMIT #{pageInfo.firstResult}, #{pageInfo.pageSize}
+        </if>
+    </select>
+
+    <select id="getPageCount" parameterType="Superior" resultType="int">
+        SELECT count(id) FROM `t_sso_superior`
+        <where>
+            1=1
+            <include refid="Base_Query_Column_List" />
+        </where>
+    </select>
+
+    <select id="checkTitle" parameterType="Superior" resultType="int">
+        SELECT count(id) FROM `t_sso_superior`
+        <where>
+            1=1
+            <if test="business!=null"> AND `business`=#{business}</if>
+            <if test="username!=null and username!=''"> AND `username` != #{username}</if>
+            <if test="title!=null and title!=''"> AND `title`=#{title}</if>
+        </where>
+    </select>
+
+</mapper>

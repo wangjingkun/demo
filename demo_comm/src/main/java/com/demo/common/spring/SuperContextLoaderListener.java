@@ -1,4 +1,4 @@
-package com.demo.back.common.spring;
+package com.demo.common.spring;
 
 import javax.servlet.ServletContextEvent;
 

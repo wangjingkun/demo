@@ -1,4 +1,4 @@
-package com.demo.back.common.mybatis;
+package com.demo.common.mybatis;
 
 import java.io.Serializable;
 import java.util.List;

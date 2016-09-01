@@ -1,4 +1,4 @@
-package com.demo.back.common.mybatis;
+package com.demo.common.mybatis;
 
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;

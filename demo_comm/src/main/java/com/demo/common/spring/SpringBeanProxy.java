@@ -1,4 +1,4 @@
-package com.demo.back.common.spring;
+package com.demo.common.spring;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

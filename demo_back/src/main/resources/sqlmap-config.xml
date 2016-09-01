@@ -6,7 +6,7 @@
 <configuration>
 
     <typeAliases>
-	 <!-- <typeAlias alias="role" type="com.lvmama.vst.back.category.po.Role" /> -->
-	</typeAliases> 
+    <!-- <typeAlias alias="role" type="com.lvmama.vst.back.category.po.Role" /> -->
+    </typeAliases> 
 
 </configuration>
